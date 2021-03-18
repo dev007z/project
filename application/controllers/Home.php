@@ -35,8 +35,12 @@ class Home extends CI_Controller
             //iterate through the list to check for user
             foreach ($users_list->result() as $user) {
                 if ($user_data['u_name'] == $user->u_name && $user_data['u_pass'] == $user->u_pass) {
+                    //session encryption:
+                    $_SESSION['u_name'] = $user_data['u_name'];
+                    
                     //login successful
-                    echo "Login successful";
+                    redirect('dash','refresh');
+                    
                 }else {
                     //login failed
                     echo "<script>alert('Username or Password incorrect')</script>";
