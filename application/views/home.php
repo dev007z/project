@@ -17,7 +17,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="form-group">
                             <input type="text" name="u_name" placeholder="Username" required class="form-control form-control-sm">
                         </div>
-                        <p class="form-group text-danger" id="login_fail"></p>
                         <div class="form-group">
                             <input type="password" name="u_pass" placeholder="Password" required class="form-control form-control-sm">
                         </div>
@@ -31,8 +30,3 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
     </div>
-    <script>
-        function login_f() {
-            document.getElementById('login_fail').innerHTML = "Username or Password does not exist."
-        }
-    </script>

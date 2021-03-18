@@ -24,23 +24,23 @@ class Home extends CI_Controller
             $name = $this->input->post('u_name');
             // store password as encrypted using md5()
             $pass = md5($this->input->post('u_pass'));
-            //save details in array 'user_details'
-            $user_details = array(
+            //save details in array 'user_data'
+            $user_data = array(
                 'u_name' => $name,
                 'u_pass' => $pass, 
             );
 
-            //get list of users from database to verify login
-            $users_list = $this->db->get_where('users', array('u_name' => $user_details['u_name']));
+            //get list of users from database
+            $users_list = $this->db->get_where('users', array('u_name' => $user_data['u_name']));
             //iterate through the list to check for user
             foreach ($users_list->result() as $user) {
-                if ($user_details['u_name'] == $user->u_name && $user_details['u_pass'] == $user->u_pass) {
+                if ($user_data['u_name'] == $user->u_name && $user_data['u_pass'] == $user->u_pass) {
                     //login successful
-                    echo "Success";
+                    echo "Login successful";
                 }else {
-                    //login failed, alert and redirect to home page(login page)
-                    echo "<script>alert('Username or Password Incorrect')</script>";
-                    redirect('home','refresh');
+                    //login failed
+                    echo "<script>alert('Username or Password incorrect')</script>";
+                    redirect('home', 'refresh');
                 }
             }
             
@@ -63,14 +63,14 @@ class Home extends CI_Controller
             $name = $this->input->post('u_name');
             // store password as encrypted using md5()
             $pass = md5($this->input->post('u_pass'));
-            //store details in array "user_details"
-            $user_details = array(
+            //store details in array "user_data"
+            $user_data = array(
                 'u_email' => $email,
                 'u_name' => $name,
                 'u_pass' => $pass,
             );
             //pass the array to the insert_user function in Users model
-            $this->Users->insert_user($user_details);
+            $this->Users->insert_user($user_data);
             redirect('home','refresh');
         } else {
             redirect('home', 'refresh');
