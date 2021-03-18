@@ -29,7 +29,22 @@ if (!$_SESSION['u_name']) {
             <!-- SIDEBAR -->
             <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
-            <div class="col-lg-9 col-md-9"></div>
+            <div class="col-lg-9 col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        Add Jobs
+                    </div>
+                    <div class="card-body">
+                        <?php form_open('jobs/add_job', 'class=form-horizontal'); ?>
+                            <div class="mb-3">
+                                <label class="form-label">Job Name</label>
+                                <input type="text" class="form-control form-control-sm" id="" placeholder="Job Name">
+                            </div>
+                            <input type="submit" class="btn btn-sm btn-success" value="Create Job">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- DASHBOARD DATA -->
