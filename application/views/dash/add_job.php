@@ -35,12 +35,12 @@ if (!$_SESSION['u_name']) {
                         Add Jobs
                     </div>
                     <div class="card-body">
-                        <?php form_open('jobs/add_job', 'class=form-horizontal'); ?>
-                            <div class="mb-3">
-                                <label class="form-label">Job Name</label>
-                                <input type="text" class="form-control form-control-sm" id="" placeholder="Job Name">
-                            </div>
-                            <input type="submit" class="btn btn-sm btn-success" value="Create Job">
+                        <?php echo form_open('jobs/add_job', 'class="form-horizontal"'); ?>
+                        <div class="mb-3">
+                            <label class="form-label">Job Name</label>
+                            <input type="text" name="j_name" class="form-control form-control-sm" placeholder="Job Name" required>
+                        </div>
+                        <input type="submit" name="add_jobBtn" class="btn btn-sm btn-success" value="Create Job">
                         </form>
                     </div>
                 </div>
