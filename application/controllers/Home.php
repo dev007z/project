@@ -1,5 +1,5 @@
-<?php 
-defined('BASEPATH') OR exit('No direct scripts access allowed');
+<?php
+defined('BASEPATH') or exit('No direct scripts access allowed');
 
 class Home extends CI_Controller
 {
@@ -8,17 +8,18 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users');
-        
     }
-    
 
-    public function index(){
+
+    public function index()
+    {
         $this->load->view('includes/header');
         $this->load->view('home');
         $this->load->view('includes/footer');
     }
 
-    public function login(){
+    public function login()
+    {
         if ($this->input->post('u_login')) {
             // get form data and declare as variables
             $name = $this->input->post('u_name');
@@ -27,7 +28,7 @@ class Home extends CI_Controller
             //save details in array 'user_data'
             $user_data = array(
                 'u_name' => $name,
-                'u_pass' => $pass, 
+                'u_pass' => $pass,
             );
 
             //get list of users from database
@@ -37,30 +38,29 @@ class Home extends CI_Controller
                 if ($user_data['u_name'] == $user->u_name && $user_data['u_pass'] == $user->u_pass) {
                     //session encryption:
                     $_SESSION['u_name'] = $user_data['u_name'];
-                    
+
                     //login successful
-                    redirect('dash','refresh');
-                    
-                }else {
+                    redirect('dash', 'refresh');
+                } else {
                     //login failed
                     echo "<script>alert('Username or Password incorrect')</script>";
                     redirect('home', 'refresh');
                 }
             }
-            
-            
-        }else { 
-            redirect('home','refresh');
+        } else {
+            redirect('home', 'refresh');
         }
     }
 
-    public function register(){
+    public function register()
+    {
         $this->load->view('includes/header');
         $this->load->view('register');
         $this->load->view('includes/footer');
     }
 
-    public function registration(){
+    public function registration()
+    {
         if ($this->input->post('u_reg')) {
             // get form data and declare as variables
             $email = $this->input->post('u_email');
@@ -75,11 +75,18 @@ class Home extends CI_Controller
             );
             //pass the array to the insert_user function in Users model
             $this->Users->insert_user($user_data);
-            redirect('home','refresh');
+            redirect('home', 'refresh');
         } else {
             redirect('home', 'refresh');
         }
     }
-}
 
- ?>
+    public function logout()
+    {
+        session_unset();
+        session_destroy();
+        
+        redirect('home','refresh');
+        
+    }
+}
