@@ -18,8 +18,14 @@ class Jobs extends CI_Controller {
         
 	}
 
+    public function viewJobs()
+    {
+        $this->load->view('dash/view_jobs');
+        
+    }
+
     // function for adding/creating jobs
-    public function add_job()
+    public function addJob()
     {
         // if button is clicked
         if ($this->input->post('add_jobBtn')) 
@@ -34,7 +40,7 @@ class Jobs extends CI_Controller {
 
             $this->Jobs_Model->add_job($job_data);
 
-            echo "Success";
+            redirect('jobs/viewJobs','refresh');
         }
     }
 

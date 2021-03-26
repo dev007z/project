@@ -13,7 +13,7 @@
             Jobs Actions
         </div>
         <div class="list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action">Jobs List</a>
+            <a href="<?php echo site_url(); ?>jobs/viewJobs" class="list-group-item list-group-item-action">Jobs List</a>
             <a href="<?php echo site_url('jobs'); ?>" class="list-group-item list-group-item-action">Add Jobs</a>
         </div>
     </div>
