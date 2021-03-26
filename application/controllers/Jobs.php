@@ -44,6 +44,12 @@ class Jobs extends CI_Controller {
         }
     }
 
+    public function updateJob($j_id)
+    {
+        $this->load->view('dash/update_job', $j_id);
+        
+    }
+
 }
 
 /* End of file Jobs.php */
