@@ -50,6 +50,26 @@ class Jobs extends CI_Controller {
         
     }
 
+    public function updateJob_process($j_id)
+    {
+        if ( $this->input->post('update_jobBtn') ) {
+            $j_name = $this->input->post('j_name');
+            $job_details = array(
+                'j_name' => $j_name
+            );
+            $this->db->where('j_id', $j_id);
+            $this->db->update('jobs', $job_details);
+            redirect('jobs/viewJobs', 'refresh');
+        }else {
+            echo "update_job failed";
+        }
+    }
+
+    public function deleteJob()
+    {
+        # code...
+    }
+
 }
 
 /* End of file Jobs.php */

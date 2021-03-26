@@ -6,7 +6,7 @@ if (!$_SESSION['u_name']) {
 
     redirect('home', 'refresh');
 }
-
+$id = $this->uri->segment(3);
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,9 +35,9 @@ if (!$_SESSION['u_name']) {
                         Update Job Details
                     </div>
                     <div class="card-body">
-                        <?php echo form_open('jobs/addJob', 'class="form-horizontal"'); ?>
+                        <?php echo form_open('jobs/updateJob_process/'.$id, 'class="form-horizontal"'); ?>
                         <?php 
-                            $id = $this->uri->segment(3);
+                            
                             $jobs_list = $this->db->get_where('jobs', array('j_id' => $id));
                             foreach ($jobs_list->result() as $job) { ?>
                                 <div class="mb-3">
@@ -48,7 +48,7 @@ if (!$_SESSION['u_name']) {
 
                         ?>
                         
-                        <input type="submit" name="update_jobBtn" class="btn btn-sm btn-success" value="Update Job">
+                        <input type="submit" name="update_jobBtn" class="btn btn-sm btn-warning" value="Update Job">
                         </form>
                     </div>
                 </div>
