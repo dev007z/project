@@ -4,7 +4,7 @@
             Employees Actions
         </div>
         <div class="list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action">Employees List</a>
+            <a href="<?php echo site_url(); ?>Employees/addEmployee" class="list-group-item list-group-item-action">Employees List</a>
             <a href="#" class="list-group-item list-group-item-action">Register Employee</a>
         </div>
     </div>

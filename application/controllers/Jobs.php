@@ -47,7 +47,6 @@ class Jobs extends CI_Controller {
     public function updateJob($j_id)
     {
         $this->load->view('dash/update_job', $j_id);
-        
     }
 
     public function updateJob_process($j_id)
@@ -65,9 +64,12 @@ class Jobs extends CI_Controller {
         }
     }
 
-    public function deleteJob()
+    public function deleteJob( $j_id )
     {
-        # code...
+        $this->db->where('j_id', $j_id);
+        $this->db->delete('jobs');
+        echo "<script>alert('Employee deleted!')</script>";
+        redirect('jobs/viewJobs', 'refresh');
     }
 
 }

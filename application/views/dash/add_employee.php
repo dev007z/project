@@ -30,23 +30,20 @@ if (!$_SESSION['u_name']) {
             <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
             <div class="col-lg-9 col-md-9">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    <?php
-                    $jobs_list = $this->db->get('jobs');
-                    foreach ($jobs_list->result() as $job) { ?>
-                        <tr>
-                            <td><?php echo $job->j_name; ?></td>
-                            <td><a href="<?php echo site_url() ?>jobs/updateJob/<?php echo $job->j_id; ?>" class="btn btn-warning btn-sm btn-block">Edit</a></td>
-                            <td><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $job->j_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td>
-                        </tr>
-                    <?php }
-                    ?>
-                </table>
+                <div class="card">
+                    <div class="card-header">
+                        Add Employee
+                    </div>
+                    <div class="card-body">
+                        <?php echo form_open('', 'class="form-horizontal"'); ?>
+                        <div class="mb-3">
+                            <label class="form-label">Employee Name</label>
+                            <input type="text" name="e_name" class="form-control form-control-sm" placeholder="Employee Name" required>
+                        </div>
+                        <input type="submit" name="add_empBtn" class="btn btn-sm btn-success" value="Create Employee">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
