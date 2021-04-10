@@ -35,10 +35,33 @@ if (!$_SESSION['u_name']) {
                         Add Employee
                     </div>
                     <div class="card-body">
-                        <?php echo form_open('', 'class="form-horizontal"'); ?>
+                        <?php echo form_open('employees/addEmp_process', 'class="form-horizontal"'); ?>
                         <div class="mb-3">
-                            <label class="form-label">Employee Name</label>
-                            <input type="text" name="e_name" class="form-control form-control-sm" placeholder="Employee Name" required>
+                            <label class="form-label">Name</label>
+                            <input type="text" name="e_name" class="form-control form-control-sm" placeholder="Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="text" name="e_email" class="form-control form-control-sm" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" name="e_phone" class="form-control form-control-sm" placeholder="Phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Job</label>
+                            <select name="e_job" class="form-control form-control-sm custom-select">
+                                <option>Select Job</option>
+                                <?php
+
+                                    $job_list = $this->db->get('jobs');
+                                    foreach ($job_list->result() as $job) { 
+                                        ?>
+                                    <option value="<?php echo $job->j_name; ?>"><?php echo $job->j_name; ?></option>
+                                <?php 
+                                    }
+                                ?>
+                            </select>
                         </div>
                         <input type="submit" name="add_empBtn" class="btn btn-sm btn-success" value="Create Employee">
                         </form>
