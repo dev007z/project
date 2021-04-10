@@ -3,6 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Employees extends CI_Controller
 {
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Employees_Model');
+        
+    }
+    
 
     public function index()
     {
@@ -31,9 +39,8 @@ class Employees extends CI_Controller
                 'e_job' => $e_job,
             );
 
-            echo "<pre>";
-            print_r($emp_data);
-            echo "</pre>";
+            $this->Employees_Model->insert_emp($emp_data);
+            echo "Success";
         }
     }
 }
