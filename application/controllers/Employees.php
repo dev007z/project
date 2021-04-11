@@ -14,6 +14,8 @@ class Employees extends CI_Controller
 
     public function index()
     {
+        $this->load->view('dash/view_emp');
+        
     }
 
     public function addEmployee()
@@ -40,7 +42,9 @@ class Employees extends CI_Controller
             );
 
             $this->Employees_Model->insert_emp($emp_data);
-            echo "Success";
+            
+            redirect('employees','refresh');
+            
         }
     }
 }
