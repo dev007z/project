@@ -7,6 +7,7 @@ if (!$_SESSION['u_name']) {
     redirect('home', 'refresh');
 }
 
+$id = $this->uri->segment(3);
 
 ?>
 <!doctype html>
@@ -32,24 +33,40 @@ if (!$_SESSION['u_name']) {
             <!-- SIDEBAR -->
             <div class="col-lg-9 col-md-9">
                 <table class="table table-bordered">
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Details</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
                     <?php
-                    $emp_list = $this->db->get('employees');
-                    foreach ($emp_list->result() as $emp) { ?>
+
+                    $emp_details = $this->db->get_where('employees', array('e_id' => $id));
+                    foreach ($emp_details->result() as $emp) {
+
+                    ?>
                         <tr>
-                            <td><?php echo $emp->e_id; ?></td>
-                            <td><?php echo $emp->e_name; ?></td>
-                            <td><a href="<?php echo site_url() ?>employees/singleEmployee/<?php echo $emp->e_id; ?>" class="btn btn-primary btn-sm btn-block">Details</a></td>
-                            <td><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-warning btn-sm btn-block">Edit</a></td>
-                            <td><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td>
+                            <th>Date</th>
+                            <td><?php echo $emp->e_date; ?></td>
                         </tr>
-                    <?php }
+                        <tr>
+                            <th>Name</th>
+                            <td><?php echo $emp->e_name; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo $emp->e_email; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td><?php echo $emp->e_phone; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Job</th>
+                            <td><?php echo $emp->e_job; ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+
                     ?>
                 </table>
             </div>
