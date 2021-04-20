@@ -43,7 +43,7 @@ $id = $this->uri->segment(3);
                         $emp_details = $this->db->get_where('employees', array('e_id' => $id));
                         foreach ($emp_details->result() as $emp) { ?>
 
-                            <?php echo form_open('', 'class="form-horizontal"'); ?>
+                            <?php echo form_open('employees/updateEmp_process/' . $id, 'class="form-horizontal"'); ?>
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
                                 <input type="text" name="e_name" class="form-control form-control-sm" placeholder="Name" value="<?php echo $emp->e_name; ?>" required>
@@ -58,7 +58,7 @@ $id = $this->uri->segment(3);
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Job</label>
-                                <input type="text" class="form-control form-control-sm" value="<?php echo $emp->e_job; ?>">
+                                <input type="text" name="e_job" class="form-control form-control-sm" value="<?php echo $emp->e_job; ?>">
                             </div>
                             <input type="submit" name="update_empBtn" class="btn btn-sm btn-success" value="Update Employee">
                             </form>

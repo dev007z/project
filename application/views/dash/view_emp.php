@@ -36,7 +36,6 @@ if (!$_SESSION['u_name']) {
                         <th>ID</th>
                         <th>Name</th>
                         <th>Details</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                     <?php
@@ -46,7 +45,6 @@ if (!$_SESSION['u_name']) {
                             <td><?php echo $emp->e_id; ?></td>
                             <td><?php echo $emp->e_name; ?></td>
                             <td><a href="<?php echo site_url() ?>employees/singleEmployee/<?php echo $emp->e_id; ?>" class="btn btn-primary btn-sm btn-block">Details</a></td>
-                            <td><a href="<?php echo site_url() ?>employees/updateEmployee/<?php echo $emp->e_id; ?>" class="btn btn-warning btn-sm btn-block">Update details</a></td>
                             <td><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td>
                         </tr>
                     <?php }

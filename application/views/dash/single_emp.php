@@ -60,7 +60,7 @@ $id = $this->uri->segment(3);
                             <td><?php echo $emp->e_job; ?></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-warning btn-sm">Edit</a>
+                            <td colspan="2"><a href="<?php echo site_url() ?>employees/updateEmployee/<?php echo $emp->e_id; ?> " class="btn btn-warning btn-sm">Edit</a>
                                 <a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
