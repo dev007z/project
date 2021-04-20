@@ -57,7 +57,7 @@ $id = $this->uri->segment(3);
                                 <input type="text" name="e_phone" class="form-control form-control-sm" placeholder="Phone" value="<?php echo $emp->e_phone; ?>" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Job</label>
+                                <label class="form-label">Position</label>
                                 <input type="text" name="e_job" class="form-control form-control-sm" value="<?php echo $emp->e_job; ?>">
                             </div>
                             <input type="submit" name="update_empBtn" class="btn btn-sm btn-success" value="Update Employee">
