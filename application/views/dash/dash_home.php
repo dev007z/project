@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 //check if session is not set
 if (!$_SESSION['u_name']) {
-
     redirect('home', 'refresh');
 }
 
@@ -27,7 +26,9 @@ if (!$_SESSION['u_name']) {
     <div class="container mt-3">
         <div class="row">
             <!-- SIDEBAR -->
-            <?php $this->load->view('dash/inc/sidebar'); ?>
+            <?php 
+            redirect('employees','refresh');
+             ?>
             <!-- SIDEBAR -->
             <div class="col-lg-9 col-md-9"></div>
         </div>

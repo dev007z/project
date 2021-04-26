@@ -8,6 +8,11 @@ class Dash extends CI_Controller {
 		$this->load->view('dash/dash_home');
 	}
 
+	public function side1()
+	{
+		$this->load->view('dash/inc/side');
+	}
+
 }
 
 /* End of file Dash.php */
