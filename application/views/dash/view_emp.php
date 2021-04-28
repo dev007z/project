@@ -26,7 +26,7 @@ if (!$_SESSION['u_name']) {
     <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
-            <?php $this->load->view('dash/inc/side'); ?>
+            <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
 
             <!-- DASHBOARD DATA -->

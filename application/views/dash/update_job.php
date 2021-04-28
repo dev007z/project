@@ -24,30 +24,30 @@ $id = $this->uri->segment(3);
     <!-- DASHBOARD NAV -->
 
     <!-- DASHBOARD DATA -->
-    <div class="container mt-3">
+    <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
             <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
-            <div class="col-lg-9 col-md-9">
+            <div class="col-lg-9 col-md-9 mt-3">
                 <div class="card">
                     <div class="card-header">
                         Update Job Details
                     </div>
                     <div class="card-body">
-                        <?php echo form_open('jobs/updateJob_process/'.$id, 'class="form-horizontal"'); ?>
-                        <?php 
-                            
-                            $jobs_list = $this->db->get_where('jobs', array('j_id' => $id));
-                            foreach ($jobs_list->result() as $job) { ?>
-                                <div class="mb-3">
-                                    <label class="form-label">Job Name</label>
-                                    <input type="text" name="j_name" class="form-control form-control-sm" placeholder="Job Name" required value="<?php echo $job->j_name; ?>">
-                                </div>
-                            <?php }
+                        <?php echo form_open('jobs/updateJob_process/' . $id, 'class="form-horizontal"'); ?>
+                        <?php
+
+                        $jobs_list = $this->db->get_where('jobs', array('j_id' => $id));
+                        foreach ($jobs_list->result() as $job) { ?>
+                            <div class="mb-3">
+                                <label class="form-label">Job Name</label>
+                                <input type="text" name="j_name" class="form-control form-control-sm" placeholder="Job Name" required value="<?php echo $job->j_name; ?>">
+                            </div>
+                        <?php }
 
                         ?>
-                        
+
                         <input type="submit" name="update_jobBtn" class="btn btn-sm btn-warning" value="Update Job">
                         </form>
                     </div>

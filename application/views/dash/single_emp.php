@@ -26,12 +26,12 @@ $id = $this->uri->segment(3);
     <!-- DASHBOARD NAV -->
 
     <!-- DASHBOARD DATA -->
-    <div class="container mt-3">
+    <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
             <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
-            <div class="col-lg-9 col-md-9">
+            <div class="col-lg-9 col-md-9 mt-3">
                 <table class="table table-bordered">
                     <?php
 

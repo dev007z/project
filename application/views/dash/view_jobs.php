@@ -24,30 +24,60 @@ if (!$_SESSION['u_name']) {
     <!-- DASHBOARD NAV -->
 
     <!-- DASHBOARD DATA -->
-    <div class="container mt-3">
+    <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
             <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
-            <div class="col-lg-9 col-md-9">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    <?php
-                    $jobs_list = $this->db->get('jobs');
-                    foreach ($jobs_list->result() as $job) { ?>
-                        <tr>
-                            <td><?php echo $job->j_name; ?></td>
-                            <td><a href="<?php echo site_url() ?>jobs/updateJob/<?php echo $job->j_id; ?>" class="btn btn-warning btn-sm btn-block">Edit</a></td>
-                            <td><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $job->j_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td>
-                        </tr>
-                    <?php }
-                    ?>
-                </table>
-            </div>
+
+
+                <!-- DASHBOARD DATA -->
+                <div class="col-md-9 col-lg-10 mt-3">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Jobs</h2>
+                        </div>
+                        <div class="col">
+                            <form action="" class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <input type="search" name="emp_search" id="emp_search" class="form-control" placeholder="Job Name">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="button" value="Search" class="btn btn-block btn-success">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                $jobs_list = $this->db->get('jobs');
+                                foreach ($jobs_list->result() as $job) { ?>
+                                    <tr>
+                                        <td><?php echo $job->j_name; ?></td>
+                                        <td><a href="<?php echo site_url() ?>jobs/updateJob/<?php echo $job->j_id; ?>" class="btn btn-warning btn-sm btn-block">Edit</a></td>
+                                        <td><a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $job->j_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td>
+                                    </tr>
+                                <?php }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- DASHBOARD DATA -->
         </div>
     </div>
     <!-- DASHBOARD DATA -->

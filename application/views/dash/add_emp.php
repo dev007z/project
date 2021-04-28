@@ -24,12 +24,12 @@ if (!$_SESSION['u_name']) {
     <!-- DASHBOARD NAV -->
 
     <!-- DASHBOARD DATA -->
-    <div class="container mt-3">
+    <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
             <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
-            <div class="col-lg-9 col-md-9">
+            <div class="col-lg-9 col-md-9 mt-3">
                 <div class="card">
                     <div class="card-header">
                         Add Employee
@@ -54,12 +54,12 @@ if (!$_SESSION['u_name']) {
                                 <option>Select Job</option>
                                 <?php
 
-                                    $job_list = $this->db->get('jobs');
-                                    foreach ($job_list->result() as $job) { 
-                                        ?>
+                                $job_list = $this->db->get('jobs');
+                                foreach ($job_list->result() as $job) {
+                                ?>
                                     <option value="<?php echo $job->j_name; ?>"><?php echo $job->j_name; ?></option>
-                                <?php 
-                                    }
+                                <?php
+                                }
                                 ?>
                             </select>
                         </div>
