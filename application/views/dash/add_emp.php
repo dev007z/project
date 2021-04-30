@@ -54,7 +54,7 @@ if (!$_SESSION['u_name']) {
                                 <option>Select Job</option>
                                 <?php
 
-                                $job_list = $this->db->get('jobs');
+                                $job_list = $this->db->get_where('jobs', array('j_status' => '1'));
                                 foreach ($job_list->result() as $job) {
                                 ?>
                                     <option value="<?php echo $job->j_name; ?>"><?php echo $job->j_name; ?></option>

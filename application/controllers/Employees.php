@@ -8,7 +8,7 @@ class Employees extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Employees_Model');
-        
+        $this->load->model('Jobs_Model');
     }
     
 
@@ -48,7 +48,10 @@ class Employees extends CI_Controller
             );
 
             $this->Employees_Model->insert_emp($emp_data);
-            
+
+            $this->db->where('j_name', $e_job);
+            $this->db->update('jobs', array('j_status' => '0'));
+
             redirect('employees','refresh');
             
         }

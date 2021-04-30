@@ -56,8 +56,8 @@ if (!$_SESSION['u_name']) {
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Position</th>
                                 <th>Details</th>
-                                <th>Delete</th>
                             </tr>
                         </thead>
 
@@ -68,8 +68,9 @@ if (!$_SESSION['u_name']) {
                                 <tr>
                                     <td><?php echo $emp->e_id; ?></td>
                                     <td><?php echo $emp->e_name; ?></td>
+                                    <td><?php echo $emp->e_job; ?></td>
                                     <td><a href="<?php echo site_url() ?>employees/singleEmployee/<?php echo $emp->e_id; ?>" class="btn btn-primary btn-sm btn-block">Details</a></td>
-                                    <td><a href="<?php echo site_url() ?>employees/deleteEmployee/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td>
+                                    <!-- <td><a href="<?php echo site_url() ?>employees/deleteEmployee/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td> -->
                                 </tr>
                             <?php }
                             ?>

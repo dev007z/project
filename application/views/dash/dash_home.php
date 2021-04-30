@@ -13,7 +13,9 @@ if (!$_SESSION['u_name']) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Dashboard - Employee Management System</title>
 </head>
 
@@ -26,9 +28,9 @@ if (!$_SESSION['u_name']) {
     <div class="container mt-3">
         <div class="row">
             <!-- SIDEBAR -->
-            <?php 
-            redirect('employees','refresh');
-             ?>
+            <?php
+            redirect('employees', 'refresh');
+            ?>
             <!-- SIDEBAR -->
             <div class="col-lg-9 col-md-9"></div>
         </div>

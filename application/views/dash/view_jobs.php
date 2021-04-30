@@ -64,7 +64,7 @@ if (!$_SESSION['u_name']) {
 
                             <tbody>
                                 <?php
-                                $jobs_list = $this->db->get('jobs');
+                                $jobs_list = $this->db->get_where('jobs', array('j_status'=>'1'));
                                 foreach ($jobs_list->result() as $job) { ?>
                                     <tr>
                                         <td><?php echo $job->j_name; ?></td>
