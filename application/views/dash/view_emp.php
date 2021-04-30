@@ -35,19 +35,7 @@ if (!$_SESSION['u_name']) {
                     <div class="col">
                         <h2>Employees</h2>
                     </div>
-                    <div class="col">
-                        <form action="" class="form-horizontal">
-                            <div class="row">
-                                <div class="col-8">
-                                    <input type="search" name="emp_search" id="emp_search" class="form-control" placeholder="Employee Name">
-                                </div>
-                                <div class="col-4">
-                                    <input type="button" value="Search" class="btn btn-block btn-success">
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
+                    
                 </div>
 
                 <div class="table-responsive">
@@ -70,7 +58,6 @@ if (!$_SESSION['u_name']) {
                                     <td><?php echo $emp->e_name; ?></td>
                                     <td><?php echo $emp->e_job; ?></td>
                                     <td><a href="<?php echo site_url() ?>employees/singleEmployee/<?php echo $emp->e_id; ?>" class="btn btn-primary btn-sm btn-block">Details</a></td>
-                                    <!-- <td><a href="<?php echo site_url() ?>employees/deleteEmployee/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm btn-block">Delete</a></td> -->
                                 </tr>
                             <?php }
                             ?>

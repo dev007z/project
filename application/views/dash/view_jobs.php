@@ -37,19 +37,7 @@ if (!$_SESSION['u_name']) {
                         <div class="col">
                             <h2>Jobs</h2>
                         </div>
-                        <div class="col">
-                            <form action="" class="form-horizontal">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <input type="search" name="emp_search" id="emp_search" class="form-control" placeholder="Job Name">
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="button" value="Search" class="btn btn-block btn-success">
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
+                        
                     </div>
 
                     <div class="table-responsive">

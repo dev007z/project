@@ -9,13 +9,13 @@ class Employees extends CI_Controller
         parent::__construct();
         $this->load->model('Employees_Model');
         $this->load->model('Jobs_Model');
+        $this->load->helper(array('form', 'url'));
     }
     
 
     public function index()
     {
         $this->load->view('dash/view_emp');
-        
     }
 
     public function singleEmployee($e_id)
@@ -38,6 +38,7 @@ class Employees extends CI_Controller
             $e_email = $this->input->post('e_email');
             $e_phone = $this->input->post('e_phone');
             $e_job = $this->input->post('e_job');
+            $e_city = $this->input->post('e_city');
 
             // save variables as array
             $emp_data = array(
@@ -45,14 +46,13 @@ class Employees extends CI_Controller
                 'e_email' => $e_email,
                 'e_phone' => $e_phone,
                 'e_job' => $e_job,
+                'e_city' => $e_city
             );
 
             $this->Employees_Model->insert_emp($emp_data);
 
             $this->db->where('j_name', $e_job);
             $this->db->update('jobs', array('j_status' => '0'));
-
-            redirect('employees','refresh');
             
         }
     }
@@ -70,13 +70,15 @@ class Employees extends CI_Controller
             $e_email = $this->input->post('e_email');
             $e_phone = $this->input->post('e_phone');
             $e_job = $this->input->post('e_job');
+            $e_city = $this->input->post('e_city');
 
             // save variables as array
             $emp_data = array(
                 'e_name' => $e_name,
                 'e_email' => $e_email,
                 'e_phone' => $e_phone,
-                'e_job' => $e_job
+                'e_job' => $e_job,
+                'e_city' => $e_city
             );
 
             

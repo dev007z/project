@@ -35,7 +35,7 @@ if (!$_SESSION['u_name']) {
                         Add Employee
                     </div>
                     <div class="card-body">
-                        <?php echo form_open('employees/addEmp_process', 'class="form-horizontal"'); ?>
+                        <?php echo form_open_multipart('employees/addEmp_process', 'class="form-horizontal"'); ?>
                         <div class="mb-3">
                             <label class="form-label">Name</label>
                             <input type="text" name="e_name" class="form-control form-control-sm" placeholder="Name" required>
@@ -47,6 +47,10 @@ if (!$_SESSION['u_name']) {
                         <div class="mb-3">
                             <label class="form-label">Phone</label>
                             <input type="text" name="e_phone" class="form-control form-control-sm" placeholder="Phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">City</label>
+                            <input type="text" name="e_city" class="form-control form-control-sm" placeholder="City" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Job</label>

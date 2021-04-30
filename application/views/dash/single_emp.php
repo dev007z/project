@@ -18,7 +18,9 @@ $id = $this->uri->segment(3);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>Dashboard - Employee Management System</title>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
 </head>
+
 
 <body>
     <!-- DASHBOARD NAV -->
@@ -31,46 +33,48 @@ $id = $this->uri->segment(3);
             <!-- SIDEBAR -->
             <?php $this->load->view('dash/inc/sidebar'); ?>
             <!-- SIDEBAR -->
-            <div class="col-lg-9 col-md-9 mt-3">
-                <table class="table table-bordered">
-                    <?php
 
-                    $emp_details = $this->db->get_where('employees', array('e_id' => $id));
-                    foreach ($emp_details->result() as $emp) {
+            <div class="col-lg-9 col-md-9">
+                <div class="row py-5 px-4" id="profile">
+                    <div class="col-md-5 mx-auto">
+                        <!-- Profile widget -->
+                        <?php
 
-                    ?>
-                        <tr>
-                            <th>Date</th>
-                            <td><?php echo $emp->e_date; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Name</th>
-                            <td><?php echo $emp->e_name; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td><?php echo $emp->e_email; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Phone</th>
-                            <td><?php echo $emp->e_phone; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Job</th>
-                            <td><?php echo $emp->e_job; ?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><a href="<?php echo site_url() ?>employees/updateEmployee/<?php echo $emp->e_id; ?> " class="btn btn-warning btn-sm">Edit</a>
-                                <a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-danger btn-sm">Delete</a>
-                            </td>
-                        </tr>
-                    <?php
-                    }
+                        $emp_details = $this->db->get_where('employees', array('e_id' => $id));
+                        foreach ($emp_details->result() as $emp) {
 
-                    ?>
-                </table>
+                        ?>
+                            <div class="bg-white shadow rounded overflow-hidden">
+                                <div class="px-4 pt-0 pb-4 cover">
+                                    <div class="media align-items-end profile-head">
+                                        <div class="profile mr-3"><img src="<?php echo site_url() . $emp->e_photo; ?>" alt="profile" width="130" class="rounded mb-2 img-thumbnail">
+                                            <a href="<?php echo site_url() ?>employees/updateEmployee/<?php echo $emp->e_id; ?>" class="btn btn-outline-dark btn-sm btn-block btn-warning">Edit</a>
+                                            <a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-outline-dark btn-sm btn-block btn-danger">Delete</a>
+                                        </div>
+                                        <div class="media-body mb-5 text-white">
+                                            <h4 class="mt-0 mb-0"><?php echo $emp->e_name; ?></h4>
+                                            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i><?php echo $emp->e_job; ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3 mt-5">
+                                    <h5 class="mb-0">About</h5>
+                                    <div class="p-4 rounded shadow-sm bg-light">
+                                        <p class="font-italic mb-0">Email: <?php echo $emp->e_email; ?></p>
+                                        <p class="font-italic mb-0">City: <?php echo $emp->e_city; ?></p>
+                                        <p class="font-italic mb-0">Phone: <?php echo $emp->e_phone; ?></p>
+                                        <p class="font-italic mb-0">Date of Employment: <?php echo $emp->e_date; ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+
     </div>
     <!-- DASHBOARD DATA -->
 
