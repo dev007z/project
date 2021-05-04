@@ -49,7 +49,7 @@ $id = $this->uri->segment(3);
                                     <div class="media align-items-end profile-head">
                                         <div class="profile mr-3"><img src="<?php echo site_url() . $emp->e_photo; ?>" alt="profile" width="130" class="rounded mb-2 img-thumbnail">
                                             <a href="<?php echo site_url() ?>employees/updateEmployee/<?php echo $emp->e_id; ?>" class="btn btn-outline-dark btn-sm btn-block btn-warning">Edit</a>
-                                            <a href="<?php echo site_url() ?>jobs/deleteJob/<?php echo $emp->e_id; ?>" class="btn btn-outline-dark btn-sm btn-block btn-danger">Delete</a>
+                                            <a href="<?php echo site_url() ?>employees/deleteEmployee/<?php echo $emp->e_id; ?>" class="btn btn-outline-dark btn-sm btn-block btn-danger">Delete</a>
                                         </div>
                                         <div class="media-body mb-5 text-white">
                                             <h4 class="mt-0 mb-0"><?php echo $emp->e_name; ?></h4>

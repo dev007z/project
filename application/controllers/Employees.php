@@ -53,7 +53,8 @@ class Employees extends CI_Controller
 
             $this->db->where('j_name', $e_job);
             $this->db->update('jobs', array('j_status' => '0'));
-            
+
+            $this->load->view('dash/view_emp');
         }
     }
 
@@ -97,7 +98,7 @@ class Employees extends CI_Controller
         alert('Employee deleted successfully!')
 
         </script>";
-        redirect('employees','refresh');
+        $this->load->view('dash/view_emp');
         
     }
 
